@@ -11,9 +11,9 @@
     <children>
         <AnchorPane layoutY="130.0" prefHeight="271.0" prefWidth="600.0" style="-fx-background-color: #DEB887;">
             <children>
-                <Button fx:id="signInButton" layoutX="203.0" layoutY="207.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="193.0" style="-fx-background-color: #FFEBCD;" text="Зарегистрироваться">
+                <Button fx:id="signUpButton" layoutX="203.0" layoutY="207.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="193.0" style="-fx-background-color: #FFEBCD;" text="Зарегистрироваться">
                     <font>
-                        <Font name="Georgia" size="17.0" />
+                        <Font name="Georgia" size="15.0" />
                     </font>
                 </Button>
                 <TextField fx:id="login_field" layoutX="339.0" layoutY="48.0" promptText="Логин" style="-fx-background-color: #FFEBCD;" />
@@ -23,10 +23,9 @@
                         <Font name="Georgia" size="20.0" />
                     </font>
                 </Label>
-                <TextField fx:id="login_field1" layoutX="130.0" layoutY="48.0" promptText="Фамилия" style="-fx-background-color: #FFEBCD;" />
-                <TextField fx:id="login_field2" layoutX="130.0" layoutY="96.0" promptText="Имя" style="-fx-background-color: #FFEBCD;" />
-                <TextField fx:id="login_field11" layoutX="130.0" layoutY="147.0" promptText="Отчество" style="-fx-background-color: #FFEBCD;" />
-                <PasswordField fx:id="password_field1" layoutX="339.0" layoutY="147.0" promptText="Пароль" style="-fx-background-color: #FFEBCD;" />
+                <TextField fx:id="last_name" layoutX="130.0" layoutY="48.0" promptText="Фамилия" style="-fx-background-color: #FFEBCD;" />
+                <TextField fx:id="first_name" layoutX="130.0" layoutY="96.0" promptText="Имя" style="-fx-background-color: #FFEBCD;" />
+                <TextField fx:id="second_name" layoutX="130.0" layoutY="147.0" promptText="Отчество" style="-fx-background-color: #FFEBCD;" />
                 <Label layoutX="130.0" layoutY="30.0" text="Фамилия:" textFill="#f8f5f5">
                     <font>
                         <Font name="Georgia" size="14.0" />
@@ -48,11 +47,6 @@
                     </font>
                 </Label>
                 <Label layoutX="339.0" layoutY="80.0" text="Пароль:" textFill="#f8f5f5">
-                    <font>
-                        <Font name="Georgia" size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="342.0" layoutY="128.0" text="Повторите пароль:" textFill="#f8f5f5">
                     <font>
                         <Font name="Georgia" size="14.0" />
                     </font>

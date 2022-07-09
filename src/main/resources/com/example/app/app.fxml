@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -10,16 +9,16 @@
     <children>
         <AnchorPane layoutY="130.0" prefHeight="271.0" prefWidth="600.0" style="-fx-background-color: #DEB887;">
          <children>
-            <ImageView fitHeight="272.0" fitWidth="537.0" layoutX="58.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/el.jpg" />
-               </image>
-            </ImageView>
             <Label layoutX="179.0" layoutY="22.0" text="Добро пожаловать!" textFill="#3a3232">
                <font>
                   <Font name="Georgia" size="25.0" />
                </font>
             </Label>
+            <Button fx:id="mainButton" layoutX="213.0" layoutY="217.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="193.0" style="-fx-background-color: #FFEBCD;" text="На главную">
+               <font>
+                  <Font name="Georgia" size="17.0" />
+               </font>
+            </Button>
          </children>
         </AnchorPane>
         <Label layoutX="197.0" layoutY="56.0" text="Access to database" textFill="#f8f5f5">

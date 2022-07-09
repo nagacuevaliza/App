@@ -11,26 +11,26 @@
    <children>
       <AnchorPane layoutY="130.0" prefHeight="271.0" prefWidth="600.0" style="-fx-background-color: #DEB887;">
          <children>
-            <Button fx:id="signUpButton" layoutX="238.0" layoutY="212.0" mnemonicParsing="false" style="-fx-background-color: #FFEBCD;" text="Регистрация">
+            <Button fx:id="signUpButton" layoutX="477.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #FFEBCD;" text="Регистрация">
                <font>
-                  <Font name="Georgia" size="17.0" />
+                  <Font name="Georgia" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="signInButton" layoutX="238.0" layoutY="136.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="123.0" style="-fx-background-color: #FFEBCD;" text="Вход">
+            <Button fx:id="signInButton" layoutX="238.0" layoutY="190.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="123.0" style="-fx-background-color: #FFEBCD;" text="Вход">
                <font>
-                  <Font name="Georgia" size="17.0" />
+                  <Font name="Georgia" size="15.0" />
                </font>
             </Button>
-            <TextField fx:id="login_field" layoutX="225.0" layoutY="49.0" promptText="Логин" style="-fx-background-color: #FFEBCD;" />
-            <PasswordField fx:id="password_field" layoutX="225.0" layoutY="92.0" promptText="Пароль" style="-fx-background-color: #FFEBCD;" />
-            <Label layoutX="239.0" layoutY="14.0" text="Авторизация" textFill="#f8f5f5">
+            <TextField fx:id="login_field" layoutX="225.0" layoutY="90.0" promptText="Логин" style="-fx-background-color: #FFEBCD;" />
+            <PasswordField fx:id="password_field" layoutX="225.0" layoutY="136.0" promptText="Пароль" style="-fx-background-color: #FFEBCD;" />
+            <Label layoutX="239.0" layoutY="53.0" text="Авторизация" textFill="#f8f5f5">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="197.0" layoutY="56.0" text="Access to database" textFill="#f8f5f5">
+      <Label layoutX="165.0" layoutY="59.0" text="ACCESS TO DATABASE" textFill="#f8f5f5">
          <font>
             <Font name="Georgia" size="25.0" />
          </font>
