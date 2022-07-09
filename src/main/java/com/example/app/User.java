@@ -16,6 +16,10 @@ public class User {
         this.password = password;
     }
 
+    public User() {
+
+    }
+
     public String getLast_name() {
         return last_name;
     }

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class Handler{
     Connection connection;
@@ -37,5 +38,24 @@ public class Handler{
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ResultSet getUser(User user){
+        ResultSet resultSet = null;
+
+        String select = "SELECT * FROM " + Constants.USER_TABLE + " WHERE " +
+                Constants.USERS_LOGIN + "=? AND " + Constants.USERS_PASSWORD + "=?";
+        try {
+            PreparedStatement prSt = getConnection().prepareStatement(select);
+            prSt.setString(1, user.getLogin());
+            prSt.setString(2, user.getPassword());
+
+            resultSet = prSt.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return resultSet;
     }
 }
