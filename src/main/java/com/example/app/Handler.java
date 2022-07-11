@@ -27,10 +27,6 @@ public class Handler{
             prSt.setString(4, "user");
 
             prSt.executeUpdate();
-            System.out.println(prSt);
-//            ResultSet getID = prSt.getGeneratedKeys();
-//            getID.next();
-//            int id = getID.getInt(1);
     }
 
     public ResultSet getUsersData(User user){

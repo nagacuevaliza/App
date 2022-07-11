@@ -12,8 +12,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Access to database");
+        Scene scene = new Scene(fxmlLoader.load(), 650, 400);
+        stage.setTitle("Доступ к базе данных");
         stage.setScene(scene);
         stage.show();
     }

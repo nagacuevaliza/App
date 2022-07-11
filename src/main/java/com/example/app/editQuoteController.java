@@ -1,30 +1,29 @@
 package com.example.app;
 
-import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.ZoneId;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-import static com.example.app.Handler.getConnection;
-
-public class addQuoteController {
+public class editQuoteController  {
 
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
+
+    @FXML
+    private Text alertText;
 
     @FXML
     private Button cleanButton;
@@ -50,23 +49,38 @@ public class addQuoteController {
     @FXML
     private TextField subjectField;
 
+    String update = null;
     Connection connection = null;
     PreparedStatement prSt = null;
+    ResultSet resultSet = null;
+    Quote quote = null;
     Handler handler = new Handler();
+    int quote_id;
+    int user_id;
 
     @FXML
     void initialize() {
     }
 
     @FXML
+    void clean(MouseEvent event) {
+        quoteField.setText(null);
+        last_nameField.setText(null);
+        first_nameField.setText(null);
+        second_nameField.setText(null);
+        subjectField.setText(null);
+    }
+
+    @FXML
     void save(MouseEvent event) throws SQLException, ClassNotFoundException {
         connection = handler.getConnection();
-        String insert = "INSERT INTO " + Constants.QUOTES_TABLE + " (" + Constants.QUOTE + "," +
-                Constants.LAST_NAME + "," + Constants.FIRST_NAME + "," + Constants.SECOND_NAME + "," +
-                Constants.SUBJECT + "," + Constants.DATE + "," + Constants.USER_ID + ") " + "VALUES (?,?,?,?,?,?,?)";
-        System.out.println(insert);
+        String update = "UPDATE " + Constants.QUOTES_TABLE + " SET " + Constants.QUOTE + "=?, " +
+                Constants.LAST_NAME + "=?, " + Constants.FIRST_NAME + "=?, " + Constants.SECOND_NAME + "=?, " +
+                Constants.SUBJECT + "=?, "  + Constants.DATE + "=?, " + Constants.USER_ID +
+                "=? WHERE id=" + TableController.quote_id;
 
-        prSt = connection.prepareStatement(insert);
+
+        prSt = connection.prepareStatement(update);
         prSt.setString(1, quoteField.getText());
         prSt.setString(2, last_nameField.getText());
         prSt.setString(3, first_nameField.getText());
@@ -77,17 +91,7 @@ public class addQuoteController {
         java.util.Date date = java.util.Date.from(dateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         java.sql.Date dateForSql = new java.sql.Date(date.getTime());
         prSt.setDate(6, dateForSql);
-
         System.out.println(prSt);
         prSt.execute();
-    }
-
-    @FXML
-    void clean(MouseEvent event) {
-        quoteField.setText(null);
-        last_nameField.setText(null);
-        first_nameField.setText(null);
-        second_nameField.setText(null);
-        subjectField.setText(null);
     }
 }

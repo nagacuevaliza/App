@@ -6,33 +6,50 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CD853F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: #CD853F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controller">
    <children>
-      <AnchorPane layoutY="130.0" prefHeight="271.0" prefWidth="600.0" style="-fx-background-color: #DEB887;">
+      <AnchorPane layoutY="130.0" prefHeight="271.0" prefWidth="650.0" style="-fx-background-color: #DEB887;">
          <children>
-            <Button fx:id="signUpButton" layoutX="477.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #FFEBCD;" text="Регистрация">
+            <Button fx:id="signUpButton" layoutX="525.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="121.0" style="-fx-background-color: #CD853F; -fx-background-radius: 20;" text="Регистрация" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="signInButton" layoutX="238.0" layoutY="190.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="123.0" style="-fx-background-color: #FFEBCD;" text="Вход">
+            <Button fx:id="signInButton" layoutX="257.0" layoutY="205.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="123.0" style="-fx-background-color: #CD853F; -fx-background-radius: 20;" text="Вход" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="15.0" />
                </font>
             </Button>
-            <TextField fx:id="login_field" layoutX="225.0" layoutY="90.0" promptText="Логин" style="-fx-background-color: #FFEBCD;" />
-            <PasswordField fx:id="password_field" layoutX="225.0" layoutY="136.0" promptText="Пароль" style="-fx-background-color: #FFEBCD;" />
-            <Label layoutX="239.0" layoutY="53.0" text="Авторизация" textFill="#f8f5f5">
+            <TextField fx:id="login_field" layoutX="250.0" layoutY="89.0" promptText="Логин" style="-fx-background-color: #FFEBCD;" />
+            <PasswordField fx:id="password_field" layoutX="250.0" layoutY="138.0" promptText="Пароль" style="-fx-background-color: #FFEBCD;" />
+            <Label layoutX="263.0" layoutY="29.0" text="Авторизация" textFill="#f8f5f5">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
             </Label>
+            <Label layoutX="250.0" layoutY="73.0" text="Логин:" textFill="#f8f5f5">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="254.0" layoutY="122.0" text="Пароль:" textFill="#f8f5f5">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="guestButton" layoutX="525.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #CD853F; -fx-background-radius: 20;" text="Вход как гость" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="15.0" />
+               </font>
+            </Button>
+            <Text fx:id="noticeField" layoutX="250.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #DEB887;" text="Text" textAlignment="CENTER" wrappingWidth="149.33333333333337" />
          </children>
       </AnchorPane>
-      <Label layoutX="165.0" layoutY="59.0" text="ACCESS TO DATABASE" textFill="#f8f5f5">
+      <Label layoutX="93.0" layoutY="48.0" text="ДОСТУП К БАЗЕ ДАННЫХ">
          <font>
-            <Font name="Georgia" size="25.0" />
+            <Font name="Georgia Italic" size="36.0" />
          </font>
       </Label>
    </children>

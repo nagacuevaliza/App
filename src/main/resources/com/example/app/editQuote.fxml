@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="436.0" style="-fx-background-color: #DEB887;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.addQuoteController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="436.0" style="-fx-background-color: #DEB887;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.editQuoteController">
     <children>
         <HBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="436.0">
             <children>
                 <VBox prefHeight="56.0" prefWidth="460.0">
                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Добавление цитаты" textAlignment="CENTER" wrappingWidth="435.642578125">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Изменение цитаты" textAlignment="CENTER" wrappingWidth="435.642578125">
                             <font>
                                 <Font name="System Bold Italic" size="26.0" />
                             </font>
@@ -49,11 +49,11 @@
         </HBox>
         <HBox prefHeight="44.0" prefWidth="436.0">
             <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия" textAlignment="CENTER" wrappingWidth="198.13671875">
-               <font>
-                  <Font name="Georgia Italic" size="20.0" />
-               </font>
-            </Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия" textAlignment="CENTER" wrappingWidth="198.13671875">
+                    <font>
+                        <Font name="Georgia Italic" size="20.0" />
+                    </font>
+                </Text>
                 <TextField fx:id="last_nameField" prefHeight="35.0" prefWidth="224.0">
                     <font>
                         <Font size="16.0" />
@@ -66,11 +66,11 @@
         </HBox>
         <HBox prefHeight="44.0" prefWidth="436.0">
             <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Имя" textAlignment="CENTER" wrappingWidth="198.13671875">
-               <font>
-                  <Font name="Georgia Italic" size="20.0" />
-               </font>
-            </Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Имя" textAlignment="CENTER" wrappingWidth="198.13671875">
+                    <font>
+                        <Font name="Georgia Italic" size="20.0" />
+                    </font>
+                </Text>
                 <TextField fx:id="first_nameField" prefHeight="35.0" prefWidth="224.0">
                     <font>
                         <Font size="16.0" />
@@ -83,11 +83,11 @@
         </HBox>
         <HBox prefHeight="44.0" prefWidth="436.0">
             <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Отчество" textAlignment="CENTER" wrappingWidth="198.13671875">
-               <font>
-                  <Font name="Georgia Italic" size="20.0" />
-               </font>
-            </Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Отчество" textAlignment="CENTER" wrappingWidth="198.13671875">
+                    <font>
+                        <Font name="Georgia Italic" size="20.0" />
+                    </font>
+                </Text>
                 <TextField fx:id="second_nameField" prefHeight="35.0" prefWidth="224.0">
                     <font>
                         <Font size="16.0" />
@@ -100,11 +100,11 @@
         </HBox>
         <HBox prefHeight="44.0" prefWidth="436.0">
             <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Предмет" textAlignment="CENTER" wrappingWidth="198.13671875">
-               <font>
-                  <Font name="Georgia Italic" size="20.0" />
-               </font>
-            </Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Предмет" textAlignment="CENTER" wrappingWidth="198.13671875">
+                    <font>
+                        <Font name="Georgia Italic" size="20.0" />
+                    </font>
+                </Text>
                 <TextField fx:id="subjectField" prefHeight="35.0" prefWidth="224.0">
                     <font>
                         <Font size="16.0" />
@@ -117,11 +117,11 @@
         </HBox>
         <HBox prefHeight="44.0" prefWidth="436.0">
             <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Дата" textAlignment="CENTER" wrappingWidth="198.13671875">
-               <font>
-                  <Font name="Georgia Italic" size="20.0" />
-               </font>
-            </Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Дата" textAlignment="CENTER" wrappingWidth="198.13671875">
+                    <font>
+                        <Font name="Georgia Italic" size="20.0" />
+                    </font>
+                </Text>
                 <DatePicker fx:id="dateField" prefHeight="32.0" prefWidth="217.0" style="-fx-background-color: #FFEBCD;" />
             </children>
             <VBox.margin>

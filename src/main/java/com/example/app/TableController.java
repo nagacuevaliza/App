@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class TableController {
@@ -56,14 +56,29 @@ public class TableController {
     private Button addButton;
 
     @FXML
+    private Button editButton;
+
+    @FXML
+    private Button exitButton;
+
+    @FXML
+    private Button removeButton;
+
+
+    @FXML
     private Button updateButton;
+
+    @FXML
+    private Text loginField;
+
+    @FXML
+    private Text groupField;
 
     String query = null;
     Connection connection = null;
     Handler handler = new Handler();
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
-    Quote quote = null;
     public static int quote_id;
     public static int user_id;
 
@@ -71,9 +86,30 @@ public class TableController {
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
+        if (Controller.user.getLevel().equals("guest")) {
+            setUsersData("Гость", "");
+            addButton.setDisable(true);
+            editButton.setDisable(true);
+            removeButton.setDisable(true);
+        } else setUsersData(Controller.user.getLogin(), "Группа: " + Controller.user.getGroup());
+
         loadingData();
         updateButton.setOnAction(actionEvent -> {
             updateTable();
+        });
+
+        exitButton.setOnAction(actionEvent -> {
+            exitButton.getScene().getWindow().hide();
+            Stage stage = new Stage();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("view.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(new Scene(root));
+            stage.setTitle("Авторизация");
+            stage.show();
         });
     }
 
@@ -88,10 +124,45 @@ public class TableController {
     }
 
     @FXML
+    void editQuote(MouseEvent event) throws IOException {
+        quote_id = teachers_quotes.getSelectionModel().getSelectedItem().getId();
+        user_id = teachers_quotes.getSelectionModel().getSelectedItem().getUser_id();
+        Parent parent = FXMLLoader.load(getClass().getResource("editQuote.fxml"));
+
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Изменение цитаты");
+        stage.show();
+    }
+
+    @FXML
+    void removeQuote(MouseEvent event) throws SQLException, ClassNotFoundException {
+        connection = handler.getConnection();
+
+        int id = teachers_quotes.getSelectionModel().getSelectedItem().getId();
+        query = "DELETE FROM " + Constants.QUOTES_TABLE + " WHERE " + Constants.QUOTE_ID + "=" + id;
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.execute();
+        updateTable();
+    }
+
+    @FXML
     private void updateTable() {
         try {
             quotes.clear();
-            query = "SELECT * FROM `teachers_quotes`";
+//            query = "SELECT * FROM `teachers_quotes`";
+            String level = Controller.user.getLevel();
+
+            if (level.equals("guest")) query = "SELECT * FROM " + Constants.QUOTES_TABLE;
+            if (level.equals("admin")) query = "SELECT * FROM " + Constants.QUOTES_TABLE;
+            if (level.equals("user")) query =
+                    "SELECT teachers_quotes.id, teachers_quotes.quote, teachers_quotes.last_name, teachers_quotes.first_name, " +
+                            "teachers_quotes.second_name, teachers_quotes.subject, teachers_quotes.date, teachers_quotes.user_id " +
+                            "FROM users " +
+                            "JOIN teachers_quotes ON (users.id = teachers_quotes.user_id) " +
+                            "WHERE (users.group ='" + Controller.user.getGroup() + "')";
+
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -127,21 +198,8 @@ public class TableController {
 //        user_idCol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
     }
 
-    public void changeScene(String window){
-        addButton.getScene().getWindow().hide();
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(window));
-
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
+    public void setUsersData(String login, String group) {
+        loginField.setText(login);
+        groupField.setText(group);
     }
 }

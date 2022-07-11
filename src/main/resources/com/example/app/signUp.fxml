@@ -6,12 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: #CD853F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.SignUpController">
     <children>
-        <AnchorPane layoutY="128.0" prefHeight="271.0" prefWidth="650.0" style="-fx-background-color: #DEB887;">
+        <AnchorPane layoutY="96.0" prefHeight="303.0" prefWidth="650.0" style="-fx-background-color: #DEB887;">
             <children>
-                <Button fx:id="signUpButton" layoutX="228.0" layoutY="204.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="193.0" style="-fx-background-color: #FFEBCD;" text="Зарегистрироваться">
+                <Button fx:id="signUpButton" layoutX="228.0" layoutY="204.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="193.0" style="-fx-background-color: #CD853F; -fx-background-radius: 20;" text="Зарегистрироваться" textFill="WHITE">
                     <font>
                         <Font name="Georgia" size="15.0" />
                     </font>
@@ -34,11 +35,22 @@
                   <Font name="Georgia" size="14.0" />
                </font>
             </Label>
+            <Button fx:id="goBackButton" layoutX="554.0" layoutY="259.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="81.0" style="-fx-background-color: #DEB887; -fx-text-fill: #FFEBCD;" text="назад" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="382.0" layoutY="266.0" prefHeight="16.0" prefWidth="187.0" text="Для авторизации перейдите" textFill="#f8f5f5">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="noticeField" layoutX="212.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #DEB887;" text="Text" textAlignment="CENTER" wrappingWidth="224.66664632161462" />
             </children>
         </AnchorPane>
-          <Label layoutX="189.0" layoutY="50.0" text="РЕГИСТРАЦИЯ" textFill="#f8f5f5">
+          <Label layoutX="189.0" layoutY="14.0" text="РЕГИСТРАЦИЯ">
               <font>
-                  <Font name="Georgia" size="36.0" />
+                  <Font name="Georgia Italic" size="36.0" />
               </font>
           </Label>
     </children>

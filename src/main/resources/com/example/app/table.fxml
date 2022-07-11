@@ -7,24 +7,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: #DEB887;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.TableController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="650.0" style="-fx-background-color: #DEB887;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.TableController">
    <children>
-      <TableView fx:id="teachers_quotes" layoutY="132.0" prefHeight="267.0" prefWidth="650.0">
+      <TableView fx:id="teachers_quotes" layoutY="116.0" prefHeight="303.0" prefWidth="650.0">
         <columns>
-          <TableColumn fx:id="quoteCol" prefWidth="161.33330726623535" text="ЦИТАТА" />
-            <TableColumn fx:id="last_nameCol" prefWidth="126.00004577636719" text="ФАМИЛИЯ" />
-            <TableColumn fx:id="first_nameCol" prefWidth="72.6666259765625" text="ИМЯ" />
-            <TableColumn fx:id="second_nameCol" prefWidth="94.00006103515625" text="ОТЧЕСТВО" />
-            <TableColumn fx:id="subjectCol" prefWidth="96.66665649414062" text="ПРЕДМЕТ" />
-            <TableColumn fx:id="dayCol" prefWidth="100.0" text="ДАТА" />
+          <TableColumn fx:id="quoteCol" prefWidth="245.99999487400055" text="ЦИТАТА" />
+            <TableColumn fx:id="last_nameCol" prefWidth="76.66670227050781" text="ФАМИЛИЯ" />
+            <TableColumn fx:id="first_nameCol" prefWidth="72.66668701171875" text="ИМЯ" />
+            <TableColumn fx:id="second_nameCol" prefWidth="80.66668701171875" text="ОТЧЕСТВО" />
+            <TableColumn fx:id="subjectCol" prefWidth="90.66665649414062" text="ПРЕДМЕТ" />
+            <TableColumn fx:id="dayCol" prefWidth="85.3333740234375" text="ДАТА" />
         </columns>
       </TableView>
-      <Text layoutX="214.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Главная страница" wrappingWidth="222.13677978515625">
+      <Text layoutX="133.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цитаты преподавателей" wrappingWidth="383.4701232910156">
          <font>
-            <Font name="Georgia" size="24.0" />
+            <Font name="Georgia Bold Italic" size="24.0" />
          </font>
       </Text>
-      <Button fx:id="addButton" layoutX="478.0" layoutY="89.0" mnemonicParsing="false" onMouseClicked="#addQuote" style="-fx-background-color: #CD853F;" text="Добавить" />
-      <Button fx:id="updateButton" layoutX="565.0" layoutY="89.0" mnemonicParsing="false" onMouseClicked="#updateTable" style="-fx-background-color: #CD853F;" text="Обновить" />
+      <Button fx:id="addButton" layoutX="421.0" layoutY="88.0" mnemonicParsing="false" onMouseClicked="#addQuote" style="-fx-background-color: #CD853F; -fx-background-radius: 20;" text="Добавить" />
+      <Button fx:id="updateButton" layoutX="7.0" layoutY="88.0" mnemonicParsing="false" onMouseClicked="#updateTable" style="-fx-background-color: #CD853F; -fx-background-radius: 20;" text="Обновить" />
+      <Button fx:id="editButton" layoutX="498.0" layoutY="88.0" mnemonicParsing="false" onMouseClicked="#editQuote" style="-fx-background-color: #CD853F; -fx-background-radius: 20;" text="Изменить" />
+      <Button fx:id="removeButton" layoutX="576.0" layoutY="88.0" mnemonicParsing="false" onMouseClicked="#removeQuote" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #CD853F; -fx-background-radius: 20;" text="Удалить" />
+      <Button fx:id="exitButton" layoutX="576.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #000000; -fx-background-radius: 20;" text="Выйти" textFill="WHITE" />
+      <Text layoutX="7.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вы вошли как:" wrappingWidth="84.8034553527832" />
+      <Text fx:id="loginField" layoutX="92.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="login" wrappingWidth="40.80345153808594" />
+      <Text fx:id="groupField" layoutX="7.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Группа: " wrappingWidth="70.66666666666669" />
    </children>
 </AnchorPane>
