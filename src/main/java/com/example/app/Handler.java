@@ -1,15 +1,11 @@
 package com.example.app;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class Handler{
-    Connection connection;
+    static Connection connection;
 
-    public Connection getConnection()
+    public static Connection getConnection()
             throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -19,28 +15,25 @@ public class Handler{
         return connection;
     }
 
-    public void signUpUser(User user){
-        String insert = "INSERT INTO " + Constants.USER_TABLE + "(" + Constants.USERS_LASTNAME + "," +
-                Constants.USERS_FIRSTNAME + "," + Constants.USERS_SECONDNAME + "," +
-                Constants.USERS_LOGIN + "," + Constants.USERS_PASSWORD + ")" + "VALUES(?,?,?,?,?)";
+    public void signUpUser(User user) throws SQLException, ClassNotFoundException {
+        String insert = "INSERT INTO " + Constants.USER_TABLE + " (" + Constants.USERS_LOGIN + ", " +
+                Constants.USERS_PASSWORD + ", " + Constants.USERS_GROUP + ", " + Constants.USERS_LEVEL + ") " +
+                "VALUES (?, ?, ?, ?)";
 
-        try {
-            PreparedStatement prSt = getConnection().prepareStatement(insert);
-            prSt.setString(1, user.getLast_name());
-            prSt.setString(2, user.getFirst_name());
-            prSt.setString(3, user.getSecond_name());
-            prSt.setString(4, user.getLogin());
-            prSt.setString(5, user.getPassword());
+            PreparedStatement prSt = getConnection().prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+            prSt.setString(1, user.getLogin());
+            prSt.setString(2, user.getPassword());
+            prSt.setString(3, user.getGroup());
+            prSt.setString(4, "user");
 
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+            System.out.println(prSt);
+//            ResultSet getID = prSt.getGeneratedKeys();
+//            getID.next();
+//            int id = getID.getInt(1);
     }
 
-    public ResultSet getUser(User user){
+    public ResultSet getUsersData(User user){
         ResultSet resultSet = null;
 
         String select = "SELECT * FROM " + Constants.USER_TABLE + " WHERE " +

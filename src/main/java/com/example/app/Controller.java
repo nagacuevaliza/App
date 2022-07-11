@@ -36,6 +36,8 @@ public class Controller {
     @FXML
     private Button signUpButton;
 
+    public static User user = new User();
+
     @FXML
     void initialize() {
         signInButton.setOnAction(actionEvent -> {
@@ -43,36 +45,40 @@ public class Controller {
             String loginPassword = password_field.getText().trim();
 
             if(!loginText.equals("") && !loginPassword.equals("")) {
-                loginUser(loginText, loginPassword);
+                try {
+                    loginUser(loginText, loginPassword);
+//                    changeScene(signInButton, "table.fxml");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
             else
-                System.out.println("Login and Password is empty");
+                System.out.println("Присутствуют пустые поля!");
         });
 
         signUpButton.setOnAction(actionEvent -> {
-            changeScene("signUp.fxml");
+            changeScene(signUpButton, "signUp.fxml");
         });
     }
 
-    private void loginUser(String loginText, String loginPassword) {
+    private void loginUser(String loginText, String loginPassword) throws SQLException {
         Handler handler = new Handler();
         User user = new User();
         user.setLogin(loginText);
         user.setPassword(loginPassword);
-        ResultSet result = handler.getUser(user);
+        ResultSet resultSet = handler.getUsersData(user);
 
-        int count = 0;
+        if(resultSet.next()) {
+            do {
+                this.user = user;
+                user.setId(resultSet.getInt(1));
+                user.setGroup(resultSet.getString(4));
+                user.setLevel(resultSet.getString(5));
 
-        while(true) {
-            try {
-                if (!result.next()) break;
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            count++;
-        }
-        if (count >=1) {
-          changeScene("app.fxml");
+                if (user.getLevel().equals("user")) {
+                    changeScene(signInButton,"table.fxml");
+                }
+            } while (resultSet.next());
         }
         else {
             Shake loginAnimation = new Shake(login_field);
@@ -82,8 +88,8 @@ public class Controller {
         }
     }
 
-    public void changeScene(String window){
-        signUpButton.getScene().getWindow().hide();
+    public void changeScene(Button button, String window){
+        button.getScene().getWindow().hide();
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(window));
@@ -97,6 +103,6 @@ public class Controller {
         Parent root = loader.getRoot();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        stage.showAndWait();
+        stage.show();
     }
 }

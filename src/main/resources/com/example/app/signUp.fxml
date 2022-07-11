@@ -7,56 +7,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CD853F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.SignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: #CD853F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.SignUpController">
     <children>
-        <AnchorPane layoutY="130.0" prefHeight="271.0" prefWidth="600.0" style="-fx-background-color: #DEB887;">
+        <AnchorPane layoutY="128.0" prefHeight="271.0" prefWidth="650.0" style="-fx-background-color: #DEB887;">
             <children>
-                <Button fx:id="signUpButton" layoutX="203.0" layoutY="207.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="193.0" style="-fx-background-color: #FFEBCD;" text="Зарегистрироваться">
+                <Button fx:id="signUpButton" layoutX="228.0" layoutY="204.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="193.0" style="-fx-background-color: #FFEBCD;" text="Зарегистрироваться">
                     <font>
                         <Font name="Georgia" size="15.0" />
                     </font>
                 </Button>
-                <TextField fx:id="login_field" layoutX="339.0" layoutY="48.0" promptText="Логин" style="-fx-background-color: #FFEBCD;" />
-                <PasswordField fx:id="password_field" layoutX="339.0" layoutY="96.0" promptText="Пароль" style="-fx-background-color: #FFEBCD;" />
-                <Label layoutX="239.0" layoutY="2.0" text="Авторизация" textFill="#f8f5f5">
-                    <font>
-                        <Font name="Georgia" size="20.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="last_name" layoutX="130.0" layoutY="48.0" promptText="Фамилия" style="-fx-background-color: #FFEBCD;" />
-                <TextField fx:id="first_name" layoutX="130.0" layoutY="96.0" promptText="Имя" style="-fx-background-color: #FFEBCD;" />
-                <TextField fx:id="second_name" layoutX="130.0" layoutY="147.0" promptText="Отчество" style="-fx-background-color: #FFEBCD;" />
-                <Label layoutX="130.0" layoutY="30.0" text="Фамилия:" textFill="#f8f5f5">
+                <TextField fx:id="login_field" layoutX="242.0" layoutY="44.0" prefHeight="25.0" prefWidth="165.0" promptText="Логин" style="-fx-background-color: #FFEBCD;" />
+                <PasswordField fx:id="password_field" layoutX="242.0" layoutY="93.0" prefHeight="25.0" prefWidth="165.0" promptText="Пароль" style="-fx-background-color: #FFEBCD;" />
+                <Label layoutX="242.0" layoutY="28.0" text="Логин:" textFill="#f8f5f5">
                     <font>
                         <Font name="Georgia" size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="130.0" layoutY="80.0" text="Имя:" textFill="#f8f5f5">
+                <Label layoutX="244.0" layoutY="77.0" text="Пароль:" textFill="#f8f5f5">
                     <font>
                         <Font name="Georgia" size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="131.0" layoutY="128.0" text="Отчество:" textFill="#f8f5f5">
-                    <font>
-                        <Font name="Georgia" size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="339.0" layoutY="30.0" text="Логин:" textFill="#f8f5f5">
-                    <font>
-                        <Font name="Georgia" size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="339.0" layoutY="80.0" text="Пароль:" textFill="#f8f5f5">
-                    <font>
-                        <Font name="Georgia" size="14.0" />
-                    </font>
-                </Label>
+            <TextField fx:id="group_field" layoutX="242.0" layoutY="144.0" prefHeight="25.0" prefWidth="165.0" promptText="Группа" style="-fx-background-color: #FFEBCD;" />
+            <Label layoutX="245.0" layoutY="128.0" text="Группа:" textFill="#f8f5f5">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
-        <Label layoutX="197.0" layoutY="56.0" text="Access to database" textFill="#f8f5f5">
-            <font>
-                <Font name="Georgia" size="25.0" />
-            </font>
-        </Label>
+          <Label layoutX="189.0" layoutY="50.0" text="РЕГИСТРАЦИЯ" textFill="#f8f5f5">
+              <font>
+                  <Font name="Georgia" size="36.0" />
+              </font>
+          </Label>
     </children>
 </AnchorPane>

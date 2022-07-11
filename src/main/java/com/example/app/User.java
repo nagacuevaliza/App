@@ -1,54 +1,35 @@
 package com.example.app;
 
 public class User {
-    private String last_name;
-    private String first_name;
-    private String second_name;
+    private int id;
     private String login;
     private String password;
+    private String group;
+    private String level;
 
-    public User(String last_name, String first_name, String second_name,
-                String login, String password){
-        this.last_name = last_name;
-        this.first_name = first_name;
-        this.second_name = second_name;
+    public User(String login, String password, String group){
         this.login = login;
         this.password = password;
+        this.group = group;
+        this.level = null;
     }
 
     public User() {
-
     }
 
-    public String getLast_name() {
-        return last_name;
+    public int getId() {
+        return id;
     }
 
-    public void setLast_name(String last_name){
-        this.last_name = last_name;
-    }
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public void setFirst_name(String first_name){
-        this.first_name = first_name;
-    }
-
-    public String getSecond_name() {
-        return second_name;
-    }
-
-    public void setSecond_name(String second_name){
-        this.second_name = second_name;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLogin() {
         return login;
     }
 
-    public void setLogin(String login){
+    public void setLogin(String login) {
         this.login = login;
     }
 
@@ -56,7 +37,23 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password){
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }
