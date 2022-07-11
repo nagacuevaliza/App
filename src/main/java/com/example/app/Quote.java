@@ -1,7 +1,7 @@
 package com.example.app;
 
 import java.sql.Date;
-
+// Объект "Цитата"
 public class Quote {
     private int id;
     private String quote;

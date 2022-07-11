@@ -1,5 +1,6 @@
 package com.example.app;
 
+// Объект "Пользователь"
 public class User {
     private int id;
     private String login;

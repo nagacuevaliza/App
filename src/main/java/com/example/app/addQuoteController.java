@@ -13,11 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-import static com.example.app.Handler.getConnection;
-
+// Контроллер для окна с добавлением новой цитаты
 public class addQuoteController {
 
     @FXML
@@ -58,6 +55,7 @@ public class addQuoteController {
     void initialize() {
     }
 
+    // Загрузка введенных данных в базу данных
     @FXML
     void save(MouseEvent event) throws SQLException, ClassNotFoundException {
         connection = handler.getConnection();
@@ -82,6 +80,7 @@ public class addQuoteController {
         prSt.execute();
     }
 
+    // Удаление значений всех полей
     @FXML
     void clean(MouseEvent event) {
         quoteField.setText(null);

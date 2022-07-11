@@ -12,12 +12,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// Контроллер для страницы авторизации
 public class Controller {
 
     @FXML
@@ -78,6 +78,7 @@ public class Controller {
         });
     }
 
+    // Авторизация пользователя
     private void loginUser(String loginText, String loginPassword) throws SQLException {
         Handler handler = new Handler();
         User user = new User();
@@ -110,6 +111,7 @@ public class Controller {
         }
     }
 
+    // Смена отображаемого экрана
     public void changeScene(Button button, String window, String title){
         button.getScene().getWindow().hide();
 

@@ -30,7 +30,7 @@ public class Handler{
     }
 
     public ResultSet getUsersData(User user){
-        ResultSet resultSet = null;
+        ResultSet resultSet;
 
         String select = "SELECT * FROM " + Constants.USER_TABLE + " WHERE " +
                 Constants.USERS_LOGIN + "=? AND " + Constants.USERS_PASSWORD + "=?";

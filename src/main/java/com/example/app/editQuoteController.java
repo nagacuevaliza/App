@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
+// Контроллер для окна с изменением цитаты
 public class editQuoteController  {
 
     @FXML
@@ -49,28 +50,15 @@ public class editQuoteController  {
     @FXML
     private TextField subjectField;
 
-    String update = null;
     Connection connection = null;
     PreparedStatement prSt = null;
-    ResultSet resultSet = null;
-    Quote quote = null;
     Handler handler = new Handler();
-    int quote_id;
-    int user_id;
 
     @FXML
     void initialize() {
     }
 
-    @FXML
-    void clean(MouseEvent event) {
-        quoteField.setText(null);
-        last_nameField.setText(null);
-        first_nameField.setText(null);
-        second_nameField.setText(null);
-        subjectField.setText(null);
-    }
-
+    // Загрузка введенных данных в базу данных
     @FXML
     void save(MouseEvent event) throws SQLException, ClassNotFoundException {
         connection = handler.getConnection();
@@ -93,5 +81,15 @@ public class editQuoteController  {
         prSt.setDate(6, dateForSql);
         System.out.println(prSt);
         prSt.execute();
+    }
+
+    // Удаление значений всех полей
+    @FXML
+    void clean(MouseEvent event) {
+        quoteField.setText(null);
+        last_nameField.setText(null);
+        first_nameField.setText(null);
+        second_nameField.setText(null);
+        subjectField.setText(null);
     }
 }

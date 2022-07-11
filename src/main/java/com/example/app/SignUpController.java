@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// Контроллер для страницы регистрации
 public class SignUpController {
 
     @FXML
@@ -55,6 +56,7 @@ public class SignUpController {
         });
     }
 
+    // Регистрация нового пользователя
     private void newUser() throws SQLException, ClassNotFoundException {
         Handler handler = new Handler();
         String login = login_field.getText();
@@ -64,11 +66,12 @@ public class SignUpController {
             noticeField.setStyle("-fx-fill: " + "#32CD32");
             noticeField.setText("Регистрация прошла успешно!");
             User user = new User(login, password, group);
-            handler.signUpUser(user);
+            handler.signUpUser(user);  // Внесение новых данных о пользователе в базу данных
         }
 
     }
 
+    // Смена отображаемого экрана
     public void changeScene(Button button, String window, String title){
         button.getScene().getWindow().hide();
 

@@ -23,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// Контроллер для страницы с отображением списка цитат
 public class TableController {
 
     @FXML
@@ -64,7 +65,6 @@ public class TableController {
     @FXML
     private Button removeButton;
 
-
     @FXML
     private Button updateButton;
 
@@ -82,6 +82,7 @@ public class TableController {
     public static int quote_id;
     public static int user_id;
 
+    // Массив для хранения цитат
     ObservableList<Quote> quotes = FXCollections.observableArrayList();
 
     @FXML
@@ -113,6 +114,7 @@ public class TableController {
         });
     }
 
+    // Добавление новой цитаты
     @FXML
     private void addQuote(MouseEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("addQuote.fxml"));
@@ -123,6 +125,7 @@ public class TableController {
         stage.show();
     }
 
+    // Изменение цитаты
     @FXML
     void editQuote(MouseEvent event) throws IOException {
         quote_id = teachers_quotes.getSelectionModel().getSelectedItem().getId();
@@ -136,6 +139,7 @@ public class TableController {
         stage.show();
     }
 
+    // Удаление цитаты
     @FXML
     void removeQuote(MouseEvent event) throws SQLException, ClassNotFoundException {
         connection = handler.getConnection();
@@ -147,11 +151,11 @@ public class TableController {
         updateTable();
     }
 
+    // Обновление данных, хранящихся в таблице
     @FXML
     private void updateTable() {
         try {
             quotes.clear();
-//            query = "SELECT * FROM `teachers_quotes`";
             String level = Controller.user.getLevel();
 
             if (level.equals("guest")) query = "SELECT * FROM " + Constants.QUOTES_TABLE;
@@ -162,6 +166,14 @@ public class TableController {
                             "FROM users " +
                             "JOIN teachers_quotes ON (users.id = teachers_quotes.user_id) " +
                             "WHERE (users.group ='" + Controller.user.getGroup() + "')";
+
+            if (level.equals("verifier")) query =
+                    "SELECT teachers_quotes.id, teachers_quotes.quote, teachers_quotes.last_name, teachers_quotes.first_name, " +
+                            "teachers_quotes.second_name, teachers_quotes.subject, teachers_quotes.date, teachers_quotes.user_id " +
+                            "FROM users " +
+                            "JOIN teachers_quotes ON (users.id = teachers_quotes.user_id) " +
+                            "WHERE (users.group ='" + Controller.user.getGroup() + "')";
+
 
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
@@ -184,6 +196,7 @@ public class TableController {
         }
     }
 
+    // Отображение данных с сервера
     private void loadingData() throws SQLException, ClassNotFoundException {
         connection = Handler.getConnection();
         updateTable();
@@ -198,6 +211,7 @@ public class TableController {
 //        user_idCol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
     }
 
+    // Получение данных пользователя
     public void setUsersData(String login, String group) {
         loginField.setText(login);
         groupField.setText(group);

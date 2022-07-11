@@ -1,14 +1,14 @@
 package com.example.app;
 
 public class Constants {
-    //users
+    // Таблица users
     public static final String USER_TABLE = "users";
     public static final String USERS_LOGIN = "login";
     public static final String USERS_PASSWORD = "password";
     public static final String USERS_GROUP = "`group`";
     public static final String USERS_LEVEL = "level";
 
-    //teachers_quotes
+    //Таблица teachers_quotes
     public static final String QUOTES_TABLE = "teachers_quotes";
     public static final String QUOTE_ID = "id";
     public static final String QUOTE = "quote";
